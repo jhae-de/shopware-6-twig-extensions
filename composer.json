@@ -1,0 +1,75 @@
+{
+  "name": "jhae/shopware-6-twig-extensions",
+  "description": "Shopware 6 Twig extensions",
+  "type": "shopware-platform-plugin",
+  "keywords": [
+    "shopware",
+    "plugin",
+    "twig",
+    "extension",
+    "template",
+    "shopping",
+    "experience",
+    "cms",
+    "page"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jan Hähne",
+      "homepage": "https://github.com/jhae-de"
+    }
+  ],
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "maspeng/test-helper": "^0.2.0",
+    "phpspec/prophecy-phpunit": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Jhae\\TwigExtensions\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Jhae\\TwigExtensions\\Test\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "./../../../vendor/bin/phpunit --configuration phpunit.xml.dist",
+    "test:coverage": [
+      "@putenv XDEBUG_MODE=coverage",
+      "./../../../vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-text"
+    ],
+    "test:coverage-clover": [
+      "@putenv XDEBUG_MODE=coverage",
+      "./../../../vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-clover=coverage/clover.xml"
+    ],
+    "test:coverage-html": [
+      "@putenv XDEBUG_MODE=coverage",
+      "./../../../vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-html=coverage"
+    ]
+  },
+  "extra": {
+    "shopware-plugin-class": "Jhae\\TwigExtensions\\JhaeTwigExtensions",
+    "label": {
+      "en-GB": "JHAE Twig extensions",
+      "de-DE": "JHAE Twig-Erweiterungen"
+    },
+    "description": {
+      "en-GB": "This plugin adds more Twig features.",
+      "de-DE": "Dieses Plugin fügt weitere Twig-Funktionen hinzu."
+    }
+  },
+  "archive": {
+    "exclude": [
+      "/.github/",
+      "/tests/",
+      "/.gitattributes",
+      "/.gitignore",
+      "/composer.lock",
+      "/makefile",
+      "/phpunit.xml.dist"
+    ]
+  }
+}

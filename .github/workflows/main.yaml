@@ -1,0 +1,74 @@
+name: PHPUnit
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    env:
+      shopware-directory: shopware
+      plugin-directory: shopware/custom/plugins/plugin
+    strategy:
+      matrix:
+        shopware-versions:
+          - v6.4.3.1
+          - v6.4.4.1
+          - v6.4.5.1
+          - v6.4.6.1
+          - v6.4.7.0
+          - v6.4.8.2
+          - v6.4.9.0
+          - v6.4.10.1
+          - v6.4.11.1
+          - v6.4.12.0
+          - v6.4.13.0
+          - v6.4.14.0
+          - v6.4.15.1
+
+    steps:
+      - name: Clone Shopware repository
+        uses: actions/checkout@v3
+        with:
+          repository: shopware/development
+          ref: ${{ matrix.shopware-versions }}
+          path: ${{ env.shopware-directory }}
+
+      - name: Install Shopware dependencies
+        run: |
+          cd ${{ env.shopware-directory }}
+          composer require "shopware/platform:${{ matrix.shopware-versions }}" --no-update
+          ./psh.phar init-composer
+
+      - name: Checkout plugin
+        uses: actions/checkout@v3
+        with:
+          path: ${{ env.plugin-directory }}
+
+      - name: Install plugin dependencies
+        run: |
+          cd ${{ env.plugin-directory }}
+          composer validate --strict
+          composer install --no-interaction
+
+      - name: Run PHPUnit tests
+        run: |
+          cd ${{ env.plugin-directory }}
+          composer run-script test:coverage-clover
+
+      - name: Check code coverage
+        run: |
+          cd ${{ env.plugin-directory }}
+          composer require --dev michaelmoussa/php-coverage-checker
+          ./vendor/bin/php-coverage-checker coverage/clover.xml 100
+
+      - name: Upload code coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: coverage/clover.xml
