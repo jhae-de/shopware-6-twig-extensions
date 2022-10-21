@@ -1,6 +1,5 @@
-![PHPUnit](https://img.shields.io/github/workflow/status/jhae-de/shopware-6-twig-extensions/PHPUnit/main?label=PHPUnit)
+![Tests](https://img.shields.io/github/workflow/status/jhae-de/shopware-6-twig-extensions/PHPUnit/main?label=Tests)
 ![Coverage](https://img.shields.io/codecov/c/github/jhae-de/shopware-6-twig-extensions/main?label=Coverage)
-![Dependencies](https://img.shields.io/librariesio/github/jhae-de/shopware-6-twig-extensions?label=Dependencies)
 ![Version](https://img.shields.io/packagist/v/jhae/shopware-6-twig-extensions?label=Version)
 ![License](https://img.shields.io/packagist/l/jhae/shopware-6-twig-extensions?label=License&color=lightgrey)
 
