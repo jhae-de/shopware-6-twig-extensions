@@ -2,7 +2,7 @@ MAKEFILE := $(firstword $(MAKEFILE_LIST))
 
 .PHONY: help
 help: ## Display help
-	@printf "Shopware 6 Development Makefile\n\n\033[33mUsage:\033[0m\n  make [target]\n\n\033[33mTargets:\033[0m\n"
+	@printf "JHAE Twig Extensions Makefile\n\n\033[33mUsage:\033[0m\n  make [target]\n\n\033[33mTargets:\033[0m\n"
 	@awk 'BEGIN {FS = ":.*?## "} /^[0-9a-zA-Z_-]+:.*?## / {printf "  \033[32m%-22s\033[0m %s\n", $$1, $$2}' $(MAKEFILE)
 
 .PHONY: test
