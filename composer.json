@@ -32,7 +32,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Jhae\\TwigExtensions\\Test\\": "tests/"
+            "Jhae\\TwigExtensions\\Test\\Unit\\": "tests/Unit/"
         }
     },
     "scripts": {
