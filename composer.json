@@ -43,11 +43,11 @@
         ],
         "test:coverage-clover": [
             "@putenv XDEBUG_MODE=coverage",
-            "./../../../vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-clover=coverage/clover.xml"
+            "./../../../vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-text --coverage-clover=coverage/clover.xml"
         ],
         "test:coverage-html": [
             "@putenv XDEBUG_MODE=coverage",
-            "./../../../vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-html=coverage"
+            "./../../../vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-text --coverage-html=coverage"
         ]
     },
     "extra": {
