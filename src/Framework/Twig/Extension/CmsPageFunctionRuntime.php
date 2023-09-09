@@ -10,12 +10,11 @@ use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Environment;
 use Twig\Error\Error;
-use Twig\Extension\AbstractExtension;
 
 /**
  * Cms page function runtime class
  */
-class CmsPageFunctionRuntime extends AbstractExtension
+class CmsPageFunctionRuntime
 {
     /**
      * Twig
