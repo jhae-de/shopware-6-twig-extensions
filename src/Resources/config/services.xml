@@ -8,7 +8,7 @@
     <services>
         <defaults public="true"/>
 
-        <service id="Jhae\TwigExtensions\Framework\Twig\Extension\CmsPageFunctionExtension">
+        <service id="Jhae\TwigExtensions\Framework\Twig\Extension">
             <tag name="twig.extension"/>
         </service>
 

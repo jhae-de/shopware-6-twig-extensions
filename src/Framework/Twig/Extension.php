@@ -1,14 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace Jhae\TwigExtensions\Framework\Twig\Extension;
+namespace Jhae\TwigExtensions\Framework\Twig;
 
+use Jhae\TwigExtensions\Framework\Twig\Extension\CmsPageFunctionRuntime;
+use Jhae\TwigExtensions\Framework\Twig\Extension\ColorBrightnessFunctionRuntime;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
- * Cms page function extension class
+ * Extension class
  */
-class CmsPageFunctionExtension extends AbstractExtension
+class Extension extends AbstractExtension
 {
     /**
      * Get functions
@@ -29,7 +31,14 @@ class CmsPageFunctionExtension extends AbstractExtension
                     'is_safe' => [
                         'html',
                     ],
-                ]
+                ],
+            ),
+            new TwigFunction(
+                'hex_color_brightness',
+                [
+                    ColorBrightnessFunctionRuntime::class,
+                    'adjustHexColorBrightness',
+                ],
             ),
         ];
     }

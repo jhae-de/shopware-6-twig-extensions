@@ -1,25 +1,26 @@
 <?php declare(strict_types=1);
 
-namespace Jhae\TwigExtensions\Test\Unit\Framework\Twig\Extension;
+namespace Jhae\TwigExtensions\Test\Unit\Framework\Twig;
 
-use Jhae\TwigExtensions\Framework\Twig\Extension\CmsPageFunctionExtension;
+use Jhae\TwigExtensions\Framework\Twig\Extension;
 use Jhae\TwigExtensions\Framework\Twig\Extension\CmsPageFunctionRuntime;
+use Jhae\TwigExtensions\Framework\Twig\Extension\ColorBrightnessFunctionRuntime;
 use PHPUnit\Framework\TestCase;
 use Twig\TwigFunction;
 
 /**
- * Cms page function extension test class
+ * Extension test class
  *
- * @covers \Jhae\TwigExtensions\Framework\Twig\Extension\CmsPageFunctionExtension
+ * @covers \Jhae\TwigExtensions\Framework\Twig\Extension
  */
-class CmsPageFunctionExtensionTest extends TestCase
+class ExtensionTest extends TestCase
 {
     /**
      * Test get functions
      */
     public function testGetFunctions(): void
     {
-        $cmsPageFunctionExtension = $this->createPartialMock(CmsPageFunctionExtension::class, []);
+        $extension = $this->createPartialMock(Extension::class, []);
 
         self::assertEquals(
             [
@@ -36,8 +37,15 @@ class CmsPageFunctionExtensionTest extends TestCase
                         ],
                     ]
                 ),
+                new TwigFunction(
+                    'hex_color_brightness',
+                    [
+                        ColorBrightnessFunctionRuntime::class,
+                        'adjustHexColorBrightness',
+                    ],
+                ),
             ],
-            $cmsPageFunctionExtension->getFunctions(),
+            $extension->getFunctions(),
         );
     }
 }
