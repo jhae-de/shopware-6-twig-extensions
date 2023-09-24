@@ -1,0 +1,4 @@
+codecov:
+  disable_default_path_fixes: true
+fixes:
+  - '/home/runner/work/shopware-6-twig-extensions/shopware-6-twig-extensions/custom/plugins/plugin/::'

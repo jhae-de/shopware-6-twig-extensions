@@ -67,6 +67,7 @@
             "/tests/",
             "/.gitattributes",
             "/.gitignore",
+            "/codecov.yaml",
             "/composer.lock",
             "/makefile",
             "/phpunit.xml.dist"
