@@ -90,17 +90,17 @@ class CmsPageFunctionRuntimeTest extends TestCase
 
         $entitySearchResult = $this->prophesize(EntitySearchResult::class);
         $entitySearchResult->first()
-            ->shouldBeCalled()
+            ->shouldBeCalledOnce()
             ->willReturn(null);
 
         $cmsPageLoader = $this->prophesize(SalesChannelCmsPageLoaderInterface::class);
         $cmsPageLoader->load($request, $criteria, $salesChannelContext)
-            ->shouldBeCalled()
+            ->shouldBeCalledOnce()
             ->willReturn($entitySearchResult->reveal());
 
         $requestStack = $this->prophesize(RequestStack::class);
         $requestStack->getCurrentRequest()
-            ->shouldBeCalled()
+            ->shouldBeCalledOnce()
             ->willReturn($request);
 
         $cmsPageFunctionRuntime = $this->createPartialMock(CmsPageFunctionRuntime::class, ['getCriteria']);
@@ -139,24 +139,24 @@ class CmsPageFunctionRuntimeTest extends TestCase
 
         $entitySearchResult = $this->prophesize(EntitySearchResult::class);
         $entitySearchResult->first()
-            ->shouldBeCalled()
+            ->shouldBeCalledOnce()
             ->willReturn($cmsPage);
 
         $cmsPageLoader = $this->prophesize(SalesChannelCmsPageLoaderInterface::class);
         $cmsPageLoader->load($request, $criteria, $salesChannelContext)
-            ->shouldBeCalled()
+            ->shouldBeCalledOnce()
             ->willReturn($entitySearchResult->reveal());
 
         $requestStack = $this->prophesize(RequestStack::class);
         $requestStack->getCurrentRequest()
-            ->shouldBeCalled()
+            ->shouldBeCalledOnce()
             ->willReturn($request);
 
         $twig = $this->prophesize(Environment::class);
         $twig->render('@Storefront/storefront/page/content/detail.html.twig', [
             'cmsPage' => $cmsPage,
         ])
-            ->shouldBeCalled()
+            ->shouldBeCalledOnce()
             ->willReturn('_rendered_template_');
 
         $cmsPageFunctionRuntime = $this->createPartialMock(CmsPageFunctionRuntime::class, ['getCriteria']);
@@ -196,17 +196,17 @@ class CmsPageFunctionRuntimeTest extends TestCase
 
         $entitySearchResult = $this->prophesize(EntitySearchResult::class);
         $entitySearchResult->first()
-            ->shouldBeCalled()
+            ->shouldBeCalledOnce()
             ->willReturn($cmsPage);
 
         $cmsPageLoader = $this->prophesize(SalesChannelCmsPageLoaderInterface::class);
         $cmsPageLoader->load($request, $criteria, $salesChannelContext)
-            ->shouldBeCalled()
+            ->shouldBeCalledOnce()
             ->willReturn($entitySearchResult->reveal());
 
         $requestStack = $this->prophesize(RequestStack::class);
         $requestStack->getCurrentRequest()
-            ->shouldBeCalled()
+            ->shouldBeCalledOnce()
             ->willReturn($request);
 
         $twigError = new Error('_twig_error_message_');
@@ -215,7 +215,7 @@ class CmsPageFunctionRuntimeTest extends TestCase
         $twig->render('@Storefront/storefront/page/content/detail.html.twig', [
             'cmsPage' => $cmsPage,
         ])
-            ->shouldBeCalled()
+            ->shouldBeCalledOnce()
             ->willThrow($twigError);
 
         $cmsPageFunctionRuntime = $this->createPartialMock(CmsPageFunctionRuntime::class, ['getCriteria']);
