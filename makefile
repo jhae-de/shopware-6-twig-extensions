@@ -1,9 +1,12 @@
-MAKEFILE := $(firstword $(MAKEFILE_LIST))
+PROJECT_NAME = JHAE Twig Extensions
+
+.DEFAULT_GOAL = help
+TARGET_DESCRIPTION_INDENTATION = 20
 
 .PHONY: help
-help: ## Display help
-	@printf "JHAE Twig Extensions Makefile\n\n\033[33mUsage:\033[0m\n  make [target]\n\n\033[33mTargets:\033[0m\n"
-	@awk 'BEGIN {FS = ":.*?## "} /^[0-9a-zA-Z_-]+:.*?## / {printf "  \033[32m%-22s\033[0m %s\n", $$1, $$2}' $(MAKEFILE)
+help: ## Display this help
+	@printf "\n\033[1;30m$(shell echo $(PROJECT_NAME)) Makefile\033[0m\n\n\033[33mUsage:\033[0m\n  make [target]\n\n\033[33mTargets:\033[0m\n"
+	@awk 'BEGIN {FS = ":.*?## "} /^[0-9a-zA-Z_-]+:.*?## / {printf "  \033[32m%-$(TARGET_DESCRIPTION_INDENTATION)s\033[0m %s\n", $$1, $$2}' $(firstword $(MAKEFILE_LIST))
 
 .PHONY: test
 test: ## Run PHPUnit
