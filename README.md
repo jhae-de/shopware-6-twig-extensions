@@ -1,9 +1,9 @@
-![Tests](https://img.shields.io/github/actions/workflow/status/jhae-de/shopware-6-twig-extensions/main.yaml?label=Tests)
-![Coverage](https://img.shields.io/codecov/c/github/jhae-de/shopware-6-twig-extensions/main?label=Coverage)
 ![Version](https://img.shields.io/packagist/v/jhae/shopware-6-twig-extensions?label=Version)
 ![License](https://img.shields.io/packagist/l/jhae/shopware-6-twig-extensions?label=License&color=lightgrey)
+![Tests](https://img.shields.io/github/actions/workflow/status/jhae-de/shopware-6-twig-extensions/main.yaml?label=Tests)
+![Coverage](https://img.shields.io/codecov/c/github/jhae-de/shopware-6-twig-extensions/main?label=Coverage)
 
-# Shopware 6 Twig extensions
+# Shopware 6 Twig Extensions
 
 This Shopware 6 plugin adds more Twig features.
 
