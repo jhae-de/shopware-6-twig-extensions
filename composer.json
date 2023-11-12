@@ -50,6 +50,12 @@
             "./../../../vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-text --coverage-html=coverage"
         ]
     },
+    "scripts-descriptions": {
+        "test": "Run unit tests",
+        "test:coverage": "Run unit tests with text coverage",
+        "test:coverage-clover": "Run unit tests with text and xml coverage",
+        "test:coverage-html": "Run unit tests with text and html coverage"
+    },
     "extra": {
         "shopware-plugin-class": "Jhae\\TwigExtensions\\JhaeTwigExtensions",
         "label": {
