@@ -3,6 +3,14 @@
 ![Tests](https://img.shields.io/github/actions/workflow/status/jhae-de/shopware-6-twig-extensions/main.yaml?label=Tests)
 ![Coverage](https://img.shields.io/codecov/c/github/jhae-de/shopware-6-twig-extensions/main?label=Coverage)
 
+> [!WARNING]
+> This repository is no longer maintained and was archived on January 11, 2025.
+>
+> The package [jhae/shopware-6-twig-extensions](https://packagist.org/packages/jhae/shopware-6-twig-extensions) has been
+> marked as abandoned. There is currently no replacement.
+
+---
+
 # Shopware 6 Twig Extensions
 
 This Shopware 6 plugin adds more Twig features.
